@@ -13,8 +13,6 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         viewControllers = [
             createViewController(rootViewController: SearchViewController(), image: #imageLiteral(resourceName: "search"), title: "Search"),
             createViewController(rootViewController: ViewController(), image:

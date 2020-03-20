@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1916BB0824249EE100C7A7B0 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1916BB0724249EE100C7A7B0 /* Track.swift */; };
 		1969614D2423B833003997EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969614C2423B833003997EF /* AppDelegate.swift */; };
 		1969614F2423B833003997EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969614E2423B833003997EF /* SceneDelegate.swift */; };
 		196961512423B833003997EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196961502423B833003997EF /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1916BB0724249EE100C7A7B0 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		196961492423B833003997EF /* AppleMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1969614C2423B833003997EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1969614E2423B833003997EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				1969614E2423B833003997EF /* SceneDelegate.swift */,
 				196961602423CD20003997EF /* MainTabBarController.swift */,
 				196961502423B833003997EF /* ViewController.swift */,
+				1916BB0724249EE100C7A7B0 /* Track.swift */,
 				196961622423FC69003997EF /* SearchViewController.swift */,
 				196961552423B836003997EF /* Assets.xcassets */,
 				196961572423B836003997EF /* LaunchScreen.storyboard */,
@@ -145,6 +148,7 @@
 				1969614D2423B833003997EF /* AppDelegate.swift in Sources */,
 				196961612423CD20003997EF /* MainTabBarController.swift in Sources */,
 				1969614F2423B833003997EF /* SceneDelegate.swift in Sources */,
+				1916BB0824249EE100C7A7B0 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
