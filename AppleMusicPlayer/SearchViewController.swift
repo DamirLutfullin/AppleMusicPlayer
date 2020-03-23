@@ -7,13 +7,18 @@
 //
 
 import UIKit
+import Alamofire
 
 class SearchViewController: UITableViewController {
     
+    var timer: Timer?
+    
+    var networkManager = NetService()
+    
     var searchBar = UISearchController(searchResultsController: nil)
     
-    let tracks = [Track(track: "bad guy", artist: "Billie Eilish"), Track(track: "bury a friend", artist: "Billie Eilish")]
-
+    var tracks: [Result] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -34,13 +39,25 @@ class SearchViewController: UITableViewController {
         let track = tracks[indexPath.row]
         cell.imageView?.image = #imageLiteral(resourceName: "Image")
         cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text = track.track + "\n" + track.artist
+        cell.textLabel?.text = (track.trackName) + "\n" + (track.artistName)
         return cell
     }
 }
 
 extension SearchViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+            let url = "https://itunes.apple.com/search?"
+            let parameters = ["term" : searchText,
+                              "limit" : "10",
+                              "media" : "music"]
+            NetworkService.getResponse(url: url, parameters: parameters) {[weak self] (result) in
+                self?.tracks = result ?? []
+                self?.tableView.reloadData()
+            }
+        })
     }
 }
+

@@ -8,7 +8,18 @@
 
 import Foundation
 
-struct Track {
-    var track: String
-    var artist: String
+// MARK: - Response
+struct Response: Decodable {
+    let resultCount: Int?
+    let results: [Result]
 }
+
+// MARK: - Result
+struct Result: Decodable {
+    let artistName: String
+    let trackName: String
+    let collectionName: String
+    let artworkUrl100: String?
+}
+
+
