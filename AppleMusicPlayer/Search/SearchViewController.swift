@@ -49,10 +49,10 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         
         setup()
         
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         searchController.obscuresBackgroundDuringPresentation = false
         setupSearchBar()
         
+        table.register(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.reuseId )
     }
     
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
@@ -63,7 +63,6 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
             self.searchViewModel = searchViewModel
             self.table.reloadData()
         }
-        
     }
     
     func setupSearchBar() {
@@ -71,9 +70,6 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
     }
-    
-    
-    
 }
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
@@ -85,12 +81,18 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let cell = table.dequeueReusableCell(withIdentifier: TrackTableViewCell.reuseId, for: indexPath) as! TrackTableViewCell
+        
         let track = searchViewModel.cells[indexPath.row]
         cell.imageView?.image = #imageLiteral(resourceName: "Image")
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text = (track.trackName) + "\n" + (track.artistName)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        84
     }
 }
 
