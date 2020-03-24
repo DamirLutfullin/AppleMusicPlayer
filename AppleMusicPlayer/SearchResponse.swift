@@ -9,13 +9,13 @@
 import Foundation
 
 // MARK: - Response
-struct Response: Decodable {
+struct SearchResponse: Decodable {
     let resultCount: Int?
-    let results: [Result]
+    let results: [Tracks]
 }
 
 // MARK: - Result
-struct Result: Decodable {
+struct Tracks: Decodable {
     let artistName: String
     let trackName: String
     let collectionName: String

@@ -17,7 +17,7 @@ class SearchMusicViewController: UITableViewController {
     
     var searchBar = UISearchController(searchResultsController: nil)
     
-    var tracks: [Result] = []
+    var tracks: [Tracks] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +49,8 @@ extension SearchMusicViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
-            let url = "https://itunes.apple.com/search?"
-            let parameters = ["term" : searchText,
-                              "limit" : "10",
-                              "media" : "music"]
-            NetworkService.getResponse(url: url, parameters: parameters) {[weak self] (result) in
-                self?.tracks = result ?? []
+            NetworkService.fetchTracks(searchText: searchText) {[weak self] (response) in
+                self?.tracks = response?.results ?? []
                 self?.tableView.reloadData()
             }
         })

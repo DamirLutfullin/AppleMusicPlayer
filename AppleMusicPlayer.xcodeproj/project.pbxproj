@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1916BB0824249EE100C7A7B0 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1916BB0724249EE100C7A7B0 /* Track.swift */; };
+		1916BB0824249EE100C7A7B0 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1916BB0724249EE100C7A7B0 /* SearchResponse.swift */; };
 		1926082C24293E8700FC1531 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1926082B24293E8700FC1531 /* NetworkService.swift */; };
 		1969614D2423B833003997EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969614C2423B833003997EF /* AppDelegate.swift */; };
 		1969614F2423B833003997EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969614E2423B833003997EF /* SceneDelegate.swift */; };
@@ -22,12 +22,13 @@
 		199B946E2429526C00438061 /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199B94672429526C00438061 /* SearchModels.swift */; };
 		199B946F2429526C00438061 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199B94682429526C00438061 /* SearchViewController.swift */; };
 		199B94702429526C00438061 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199B94692429526C00438061 /* SearchInteractor.swift */; };
-		199B94712429526C00438061 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 199B946A2429526C00438061 /* SearchViewController.xib */; };
+		199B94732429657A00438061 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 199B94722429657A00438061 /* SearchViewController.storyboard */; };
+		199B947524296A9300438061 /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199B947424296A9300438061 /* UIViewController + Storyboard.swift */; };
 		597878003EF3AF7C2A79450C /* Pods_AppleMusicPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891220D9F3DF0E1435486A09 /* Pods_AppleMusicPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1916BB0724249EE100C7A7B0 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		1916BB0724249EE100C7A7B0 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		1926082B24293E8700FC1531 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		196961492423B833003997EF /* AppleMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1969614C2423B833003997EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +45,8 @@
 		199B94672429526C00438061 /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
 		199B94682429526C00438061 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		199B94692429526C00438061 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
-		199B946A2429526C00438061 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		199B94722429657A00438061 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		199B947424296A9300438061 /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		248638653951B39794F3BDE6 /* Pods-AppleMusicPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleMusicPlayer.debug.xcconfig"; path = "Target Support Files/Pods-AppleMusicPlayer/Pods-AppleMusicPlayer.debug.xcconfig"; sourceTree = "<group>"; };
 		282D584BCE0386AABBE78602 /* Pods-AppleMusicPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleMusicPlayer.release.xcconfig"; path = "Target Support Files/Pods-AppleMusicPlayer/Pods-AppleMusicPlayer.release.xcconfig"; sourceTree = "<group>"; };
 		891220D9F3DF0E1435486A09 /* Pods_AppleMusicPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleMusicPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,10 +92,11 @@
 				199B94542429515200438061 /* Search */,
 				196961622423FC69003997EF /* SearchMusicViewController.swift */,
 				196961502423B833003997EF /* ViewController.swift */,
-				1916BB0724249EE100C7A7B0 /* Track.swift */,
+				1916BB0724249EE100C7A7B0 /* SearchResponse.swift */,
 				196961552423B836003997EF /* Assets.xcassets */,
 				196961572423B836003997EF /* LaunchScreen.storyboard */,
 				1969615A2423B836003997EF /* Info.plist */,
+				199B947624296AA100438061 /* Helpers */,
 			);
 			path = AppleMusicPlayer;
 			sourceTree = "<group>";
@@ -101,13 +104,13 @@
 		199B94542429515200438061 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				199B94642429526C00438061 /* SearchPresenter.swift */,
-				199B94652429526C00438061 /* SearchWorker.swift */,
-				199B94662429526C00438061 /* SearchRouter.swift */,
-				199B94672429526C00438061 /* SearchModels.swift */,
+				199B94722429657A00438061 /* SearchViewController.storyboard */,
 				199B94682429526C00438061 /* SearchViewController.swift */,
 				199B94692429526C00438061 /* SearchInteractor.swift */,
-				199B946A2429526C00438061 /* SearchViewController.xib */,
+				199B94642429526C00438061 /* SearchPresenter.swift */,
+				199B94652429526C00438061 /* SearchWorker.swift */,
+				199B94672429526C00438061 /* SearchModels.swift */,
+				199B94662429526C00438061 /* SearchRouter.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -118,6 +121,14 @@
 				1926082B24293E8700FC1531 /* NetworkService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		199B947624296AA100438061 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				199B947424296A9300438061 /* UIViewController + Storyboard.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		7C83A0AACB103AF36B371E1D /* Pods */ = {
@@ -199,7 +210,7 @@
 			files = (
 				196961592423B836003997EF /* LaunchScreen.storyboard in Resources */,
 				196961562423B836003997EF /* Assets.xcassets in Resources */,
-				199B94712429526C00438061 /* SearchViewController.xib in Resources */,
+				199B94732429657A00438061 /* SearchViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				196961632423FC69003997EF /* SearchMusicViewController.swift in Sources */,
+				199B947524296A9300438061 /* UIViewController + Storyboard.swift in Sources */,
 				196961512423B833003997EF /* ViewController.swift in Sources */,
 				1969614D2423B833003997EF /* AppDelegate.swift in Sources */,
 				199B94702429526C00438061 /* SearchInteractor.swift in Sources */,
@@ -262,7 +274,7 @@
 				199B946F2429526C00438061 /* SearchViewController.swift in Sources */,
 				199B946D2429526C00438061 /* SearchRouter.swift in Sources */,
 				199B946E2429526C00438061 /* SearchModels.swift in Sources */,
-				1916BB0824249EE100C7A7B0 /* Track.swift in Sources */,
+				1916BB0824249EE100C7A7B0 /* SearchResponse.swift in Sources */,
 				199B946B2429526C00438061 /* SearchPresenter.swift in Sources */,
 				1926082C24293E8700FC1531 /* NetworkService.swift in Sources */,
 			);

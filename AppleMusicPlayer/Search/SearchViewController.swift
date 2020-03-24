@@ -9,52 +9,97 @@
 import UIKit
 
 protocol SearchDisplayLogic: class {
-  func displayData(viewModel: Search.Model.ViewModel.ViewModelData)
+    func displayData(viewModel: Search.Model.ViewModel.ViewModelData)
 }
 
 class SearchViewController: UIViewController, SearchDisplayLogic {
-
-  var interactor: SearchBusinessLogic?
-  var router: (NSObjectProtocol & SearchRoutingLogic)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup() {
-    let viewController        = self
-    let interactor            = SearchInteractor()
-    let presenter             = SearchPresenter()
-    let router                = SearchRouter()
-    viewController.interactor = interactor
-    viewController.router     = router
-    interactor.presenter      = presenter
-    presenter.viewController  = viewController
-    router.viewController     = viewController
-  }
-  
-  // MARK: Routing
-  
-
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
-  
-  func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
-
-  }
-  
+    
+    var interactor: SearchBusinessLogic?
+    var router: (NSObjectProtocol & SearchRoutingLogic)?
+    private var timer: Timer?
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    private var searchViewModel = SearchViewModel(cells: [])
+    
+    @IBOutlet var table: UITableView!
+    
+    
+    // MARK: Setup
+    
+    private func setup() {
+        let viewController        = self
+        let interactor            = SearchInteractor()
+        let presenter             = SearchPresenter()
+        let router                = SearchRouter()
+        viewController.interactor = interactor
+        viewController.router     = router
+        interactor.presenter      = presenter
+        presenter.viewController  = viewController
+        router.viewController     = viewController
+    }
+    
+    // MARK: Routing
+    
+    
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setup()
+        
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        searchController.obscuresBackgroundDuringPresentation = false
+        setupSearchBar()
+        
+    }
+    
+    func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
+        switch viewModel {
+        case .some:
+            print("some")
+        case .displayTraks (let searchViewModel):
+            self.searchViewModel = searchViewModel
+            self.table.reloadData()
+        }
+        
+    }
+    
+    func setupSearchBar() {
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+    }
+    
+    
+    
 }
+
+//MARK: - UITableViewDataSource, UITableViewDelegate
+
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        searchViewModel.cells.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let track = searchViewModel.cells[indexPath.row]
+        cell.imageView?.image = #imageLiteral(resourceName: "Image")
+        cell.textLabel?.numberOfLines = 0
+        cell.textLabel?.text = (track.trackName) + "\n" + (track.artistName)
+        return cell
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: false, block: { _ in
+            self.interactor?.makeRequest(request: Search.Model.Request.RequestType.getTracks(searchText: searchText))
+        })
+    }
+}
+
