@@ -19,6 +19,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     private var timer: Timer?
     
     let searchController = UISearchController(searchResultsController: nil)
+    
     private var searchViewModel = SearchViewModel(cells: [])
     
     @IBOutlet var table: UITableView!
@@ -52,7 +53,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         searchController.obscuresBackgroundDuringPresentation = false
         setupSearchBar()
         
-        table.register(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.reuseId )
+        setupTableView()
     }
     
     func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
@@ -70,6 +71,11 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
     }
+    
+    func setupTableView() {
+        let nib = UINib(nibName: "TrackCell", bundle: nil)
+        table.register(nib, forCellReuseIdentifier: TrackCell.reuseId)
+    }
 }
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
@@ -82,12 +88,11 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = table.dequeueReusableCell(withIdentifier: TrackTableViewCell.reuseId, for: indexPath) as! TrackTableViewCell
+        let cell = table.dequeueReusableCell(withIdentifier: TrackCell.reuseId, for: indexPath) as! TrackCell
         
-        let track = searchViewModel.cells[indexPath.row]
-        cell.imageView?.image = #imageLiteral(resourceName: "Image")
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.text = (track.trackName) + "\n" + (track.artistName)
+        let cellViewModel = searchViewModel.cells[indexPath.row]
+        cell.set(viewModel: cellViewModel)
+        cell.imageView?.backgroundColor = .gray
         return cell
     }
     
@@ -99,8 +104,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: false, block: { _ in
-            self.interactor?.makeRequest(request: Search.Model.Request.RequestType.getTracks(searchText: searchText))
+        timer = Timer.scheduledTimer(withTimeInterval: 0.75, repeats: false, block: { [ weak self ]_ in
+            self?.interactor?.makeRequest(request: Search.Model.Request.RequestType.getTracks(searchText: searchText))
         })
     }
 }

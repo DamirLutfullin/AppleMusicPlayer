@@ -29,7 +29,6 @@ class SearchInteractor: SearchBusinessLogic {
             NetworkService.fetchTracks(searchText: searchText) { [weak self] (searchResponse) in
                 self?.presenter?.presentData(response: Search.Model.Response.ResponseType.presentTraks(searchResponse: searchResponse))
             }
-            
         }
     }
 }

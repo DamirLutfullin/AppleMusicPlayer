@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TrackTableViewCell" customModule="AppleMusicPlayer" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TrackCell" customModule="AppleMusicPlayer" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -45,10 +45,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="albomName" destination="yML-4q-OFV" id="4b7-LH-V7n"/>
-                <outlet property="artisrName" destination="Vj5-ej-baf" id="Rfq-i6-v5N"/>
-                <outlet property="songLabel" destination="2WP-AP-7Dx" id="0Jd-wD-IxX"/>
-                <outlet property="trackImage" destination="UOY-29-UoZ" id="xoa-a5-v40"/>
+                <outlet property="artisrNameLabel" destination="Vj5-ej-baf" id="Rfq-i6-v5N"/>
+                <outlet property="collectionNameLabel" destination="yML-4q-OFV" id="4b7-LH-V7n"/>
+                <outlet property="trackIcon" destination="UOY-29-UoZ" id="xoa-a5-v40"/>
+                <outlet property="trackNameLabel" destination="2WP-AP-7Dx" id="0Jd-wD-IxX"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="130.58035714285714"/>
         </tableViewCell>

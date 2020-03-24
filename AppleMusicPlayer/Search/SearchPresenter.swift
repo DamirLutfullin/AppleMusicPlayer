@@ -26,16 +26,15 @@ class SearchPresenter: SearchPresentationLogic {
           
         let searchViewModel = SearchViewModel(cells: cells)
             viewController?.displayData(viewModel: Search.Model.ViewModel.ViewModelData.displayTraks(searchViewModel: searchViewModel))
-            
         }
     }
     
     private func cellViewModel(from traks: Tracks) -> SearchViewModel.Cell {
         
-        
         return SearchViewModel.Cell.init(iconUrlString: traks.artworkUrl100,
                                          trackName: traks.trackName,
-                                         collectionName: traks.collectionName ,
-                                         artistName: traks.artistName)
+                                         artistName: traks.artistName,
+                                         collectionName: traks.collectionName,
+                                         previewUrl: traks.previewUrl)
     }
 }
