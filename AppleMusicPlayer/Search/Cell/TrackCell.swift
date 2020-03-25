@@ -9,6 +9,7 @@
 import Foundation
 
 import UIKit
+import SDWebImage
 
 protocol TrackCellViewModel {
     var iconUrlString: String? {get}
@@ -18,7 +19,7 @@ protocol TrackCellViewModel {
 }
 
 class TrackCell: UITableViewCell {
-
+    
     @IBOutlet var trackIcon: UIImageView!
     @IBOutlet var trackNameLabel: UILabel!
     @IBOutlet var collectionNameLabel: UILabel!
@@ -30,10 +31,19 @@ class TrackCell: UITableViewCell {
         super.awakeFromNib()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        trackIcon.image = nil
+    }
+    
     func set(viewModel: TrackCellViewModel) {
         trackNameLabel.text = viewModel.trackName
         collectionNameLabel.text = viewModel.collectionName
         artisrNameLabel.text = viewModel.artistName
+        
+        guard let url = URL(string: viewModel.iconUrlString ?? "") else { return }
+        trackIcon.sd_setImage(with: url, completed: nil)
     }
-    
 }
+
+

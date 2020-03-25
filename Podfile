@@ -7,5 +7,7 @@ target 'AppleMusicPlayer' do
 
   # Pods for AppleMusicPlayer
 pod 'Alamofire', '~> 5.0'
+pod 'SDWebImage', '~> 5.0'
+
 
 end

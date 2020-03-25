@@ -10,6 +10,7 @@
 		1916BB0824249EE100C7A7B0 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1916BB0724249EE100C7A7B0 /* SearchResponse.swift */; };
 		1926082C24293E8700FC1531 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1926082B24293E8700FC1531 /* NetworkService.swift */; };
 		1945721D2429D6510061BFF3 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1945721B2429D6510061BFF3 /* TrackCell.xib */; };
+		194A52F5242BDC4D009E8A0D /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194A52F4242BDC4D009E8A0D /* FooterView.swift */; };
 		19550742242A8CAF007B787A /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19550741242A8CAF007B787A /* TrackCell.swift */; };
 		1969614D2423B833003997EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969614C2423B833003997EF /* AppDelegate.swift */; };
 		1969614F2423B833003997EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969614E2423B833003997EF /* SceneDelegate.swift */; };
@@ -33,6 +34,7 @@
 		1916BB0724249EE100C7A7B0 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		1926082B24293E8700FC1531 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1945721B2429D6510061BFF3 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
+		194A52F4242BDC4D009E8A0D /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		19550741242A8CAF007B787A /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		196961492423B833003997EF /* AppleMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1969614C2423B833003997EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 				19550741242A8CAF007B787A /* TrackCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		194A52F3242BDC27009E8A0D /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				194A52F4242BDC4D009E8A0D /* FooterView.swift */,
+			);
+			path = FooterView;
 			sourceTree = "<group>";
 		};
 		19550740242A64C4007B787A /* Models */ = {
@@ -124,6 +134,7 @@
 		199B94542429515200438061 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				194A52F3242BDC27009E8A0D /* FooterView */,
 				194572192429D5D20061BFF3 /* Cell */,
 				199B94722429657A00438061 /* SearchViewController.storyboard */,
 				199B94682429526C00438061 /* SearchViewController.swift */,
@@ -291,6 +302,7 @@
 				196961512423B833003997EF /* ViewController.swift in Sources */,
 				1969614D2423B833003997EF /* AppDelegate.swift in Sources */,
 				199B94702429526C00438061 /* SearchInteractor.swift in Sources */,
+				194A52F5242BDC4D009E8A0D /* FooterView.swift in Sources */,
 				19550742242A8CAF007B787A /* TrackCell.swift in Sources */,
 				196961612423CD20003997EF /* MainTabBarController.swift in Sources */,
 				1969614F2423B833003997EF /* SceneDelegate.swift in Sources */,
