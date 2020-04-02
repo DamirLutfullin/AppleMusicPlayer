@@ -11,7 +11,7 @@ import SDWebImage
 import AVKit
 
 class TrackDetailView: UIView {
-
+    
     //MARK: IBOutlets
     @IBOutlet var trackImageView: UIImageView!
     @IBOutlet var currentTimeSlider: UISlider!
@@ -30,15 +30,17 @@ class TrackDetailView: UIView {
         return player
     }()
     
+    
     let scale: CGFloat = 0.8
     
     // MARK: Life cicle
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        
         trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
         trackImageView.layer.cornerRadius = 15
         trackImageView.clipsToBounds = true
+        
         
     }
     
@@ -48,9 +50,15 @@ class TrackDetailView: UIView {
     }
     
     @IBAction func currentTimeSlider(_ sender: UISlider) {
+        let precenrage = sender.value
+        guard let duration = player.currentItem?.duration else { return }
+        let seconds = CMTimeGetSeconds(duration)
+        let searchSecond = Float64(precenrage) * seconds
+        player.seek(to: CMTime(seconds: searchSecond, preferredTimescale: 1))
     }
     
     @IBAction func volumeSliderAction(_ sender: UISlider) {
+        player.volume = sender.value
     }
     
     @IBAction func previosTrack(_ sender: UIButton) {
@@ -77,6 +85,7 @@ class TrackDetailView: UIView {
         trackTitleLabel.text = viewModel.trackName
         authorLabel.text = viewModel.artistName
         monitorStartTime()
+        observePlayerCurrentTime()
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600") ?? ""
         trackImageView.sd_setImage(with: URL(string: string600), completed: nil)
         playTrack(previewUrl: viewModel.previewUrl)
@@ -106,13 +115,32 @@ class TrackDetailView: UIView {
         }, completion: nil)
     }
     
-    
+    //MARK: Time setup
     private func monitorStartTime() {
-        let time = CMTimeMake(value: 1, timescale: 3)
+        let time = CMTimeMake(value: 1, timescale: 1000)
         let times = [NSValue(time: time)]
         player.addBoundaryTimeObserver(forTimes: times, queue: .main){ [weak self] in
             self?.increaseTrackImageView()
         }
+    }
+    
+    private func observePlayerCurrentTime() {
+        let interval = CMTime(value: 1, timescale: 2)
+        player.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
+            self?.currentTimeLabel.text = time.convertToString()
+            
+            guard let duration = self?.player.currentItem?.duration else { return }
+            let timeLeft = duration - time
+            self?.durationLabel.text = timeLeft.convertToString()
+            self?.updateCurrentTimeSlider()
+        }
+    }
+    
+    func updateCurrentTimeSlider() {
+        let currentTimeSeconds = CMTimeGetSeconds(player.currentTime())
+        let durationSeconds = CMTimeGetSeconds(player.currentItem?.duration ?? player.currentTime())
+        let value = currentTimeSeconds / durationSeconds
+        self.currentTimeSlider.value = Float(value)
     }
     
     

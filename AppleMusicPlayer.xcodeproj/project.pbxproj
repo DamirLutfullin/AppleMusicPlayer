@@ -14,6 +14,7 @@
 		1937F3A8242D531500005570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1937F3A7242D531400005570 /* Assets.xcassets */; };
 		1945721D2429D6510061BFF3 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1945721B2429D6510061BFF3 /* TrackCell.xib */; };
 		194A52F5242BDC4D009E8A0D /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194A52F4242BDC4D009E8A0D /* FooterView.swift */; };
+		194B11782436869C00F3AAE1 /* CMTime + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194B11772436869C00F3AAE1 /* CMTime + extension.swift */; };
 		19550742242A8CAF007B787A /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19550741242A8CAF007B787A /* TrackCell.swift */; };
 		1969614D2423B833003997EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969614C2423B833003997EF /* AppDelegate.swift */; };
 		1969614F2423B833003997EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969614E2423B833003997EF /* SceneDelegate.swift */; };
@@ -40,6 +41,7 @@
 		1937F3A7242D531400005570 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Downloads/14 урок/IMusic/Assets.xcassets"; sourceTree = "<group>"; };
 		1945721B2429D6510061BFF3 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		194A52F4242BDC4D009E8A0D /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		194B11772436869C00F3AAE1 /* CMTime + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + extension.swift"; sourceTree = "<group>"; };
 		19550741242A8CAF007B787A /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		196961492423B833003997EF /* AppleMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1969614C2423B833003997EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				199B947424296A9300438061 /* UIViewController + Storyboard.swift */,
+				194B11772436869C00F3AAE1 /* CMTime + extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				199B94702429526C00438061 /* SearchInteractor.swift in Sources */,
 				194A52F5242BDC4D009E8A0D /* FooterView.swift in Sources */,
 				19550742242A8CAF007B787A /* TrackCell.swift in Sources */,
+				194B11782436869C00F3AAE1 /* CMTime + extension.swift in Sources */,
 				196961612423CD20003997EF /* MainTabBarController.swift in Sources */,
 				1969614F2423B833003997EF /* SceneDelegate.swift in Sources */,
 				199B946C2429526C00438061 /* SearchWorker.swift in Sources */,
