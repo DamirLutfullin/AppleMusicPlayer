@@ -30,9 +30,15 @@ class TrackDetailView: UIView {
         return player
     }()
     
+    let scale: CGFloat = 0.8
+    
     // MARK: Life cicle
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        trackImageView.layer.cornerRadius = 15
+        trackImageView.clipsToBounds = true
         
     }
     
@@ -57,9 +63,12 @@ class TrackDetailView: UIView {
         if player.timeControlStatus == .paused {
             player.play()
             playPuseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            increaseTrackImageView()
+            
         } else {
             player.pause()
             playPuseButton.setImage(#imageLiteral(resourceName: "play"), for: .normal)
+            reduseTrackImageView()
         }
     }
     
@@ -67,13 +76,14 @@ class TrackDetailView: UIView {
     func set(viewModel: SearchViewModel.Cell) {
         trackTitleLabel.text = viewModel.trackName
         authorLabel.text = viewModel.artistName
-        
+        monitorStartTime()
         let string600 = viewModel.iconUrlString?.replacingOccurrences(of: "100x100", with: "600x600") ?? ""
         trackImageView.sd_setImage(with: URL(string: string600), completed: nil)
         playTrack(previewUrl: viewModel.previewUrl)
         
     }
     
+    //MARK: music player
     private func playTrack(previewUrl: String?) {
         guard let url = URL(string: previewUrl ?? "") else {
             return
@@ -83,6 +93,27 @@ class TrackDetailView: UIView {
         player.play()
     }
     
+    //MARK: Animation
+    private func increaseTrackImageView() {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.trackImageView.transform = .identity
+        }, completion: nil)
+    }
+    
+    private func reduseTrackImageView() {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.trackImageView.transform = CGAffineTransform(scaleX: self.scale, y: self.scale)
+        }, completion: nil)
+    }
+    
+    
+    private func monitorStartTime() {
+        let time = CMTimeMake(value: 1, timescale: 3)
+        let times = [NSValue(time: time)]
+        player.addBoundaryTimeObserver(forTimes: times, queue: .main){ [weak self] in
+            self?.increaseTrackImageView()
+        }
+    }
     
     
 }
