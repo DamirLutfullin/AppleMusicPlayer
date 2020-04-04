@@ -26,7 +26,7 @@
                                 <action selector="dragDownButtomTapped:" destination="JOi-ud-cRE" eventType="touchUpInside" id="YAx-ZL-0kr"/>
                             </connections>
                         </button>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d9F-2K-Sig">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="d9F-2K-Sig">
                             <rect key="frame" x="0.0" y="54" width="354" height="354"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="d9F-2K-Sig" secondAttribute="height" multiplier="1:1" id="PGd-kz-JKk"/>
@@ -159,6 +159,7 @@
         <image name="Drag Down" width="37" height="12"/>
         <image name="Icon Min" width="7" height="12"/>
         <image name="IconMax" width="17" height="17"/>
+        <image name="Image" width="54.333332061767578" height="54.333332061767578"/>
         <image name="Left" width="34" height="20"/>
         <image name="Right" width="34" height="20"/>
         <image name="pause" width="57" height="57"/>

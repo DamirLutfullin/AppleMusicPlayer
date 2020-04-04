@@ -15,6 +15,10 @@ protocol TrackMovingDelegate: class {
     func moveNextTrack() -> SearchViewModel.Cell?
 }
 
+protocol MainTabBarControllerDelegate: class {
+    func minimizedTrackDetailController()
+}
+
 class TrackDetailView: UIView {
     
     //MARK: IBOutlets
@@ -27,7 +31,7 @@ class TrackDetailView: UIView {
     @IBOutlet var volumeSlider: UISlider!
     @IBOutlet var authorLabel: UILabel!
     
-    weak var delegate: TrackMovingDelegate?
+    
     
     // MARK: Property
     let player: AVPlayer = {
@@ -36,8 +40,10 @@ class TrackDetailView: UIView {
         return player
     }()
     
-    
     let scale: CGFloat = 0.8
+    
+    weak var delegate: TrackMovingDelegate?
+    weak var tabBarDelegate : MainTabBarControllerDelegate?
     
     // MARK: Life cicle
     override func awakeFromNib() {
@@ -46,13 +52,14 @@ class TrackDetailView: UIView {
         trackImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
         trackImageView.layer.cornerRadius = 15
         trackImageView.clipsToBounds = true
-        
-        
+    
     }
     
     //MARK: IBActions
     @IBAction func dragDownButtomTapped(_ sender: UIButton) {
-        self.removeFromSuperview()
+        // self.removeFromSuperview()
+        self.tabBarDelegate?.minimizedTrackDetailController()
+    
     }
     
     @IBAction func currentTimeSlider(_ sender: UISlider) {

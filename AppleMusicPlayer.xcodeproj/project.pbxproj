@@ -22,6 +22,7 @@
 		196961592423B836003997EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 196961572423B836003997EF /* LaunchScreen.storyboard */; };
 		196961612423CD20003997EF /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196961602423CD20003997EF /* MainTabBarController.swift */; };
 		196961632423FC69003997EF /* SearchMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196961622423FC69003997EF /* SearchMusicViewController.swift */; };
+		1990A1172438CB97002BC013 /* nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1990A1162438CB97002BC013 /* nib.swift */; };
 		199B946B2429526C00438061 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199B94642429526C00438061 /* SearchPresenter.swift */; };
 		199B946C2429526C00438061 /* SearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199B94652429526C00438061 /* SearchWorker.swift */; };
 		199B946D2429526C00438061 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199B94662429526C00438061 /* SearchRouter.swift */; };
@@ -51,6 +52,7 @@
 		1969615A2423B836003997EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		196961602423CD20003997EF /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		196961622423FC69003997EF /* SearchMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMusicViewController.swift; sourceTree = "<group>"; };
+		1990A1162438CB97002BC013 /* nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nib.swift; sourceTree = "<group>"; };
 		199B94642429526C00438061 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		199B94652429526C00438061 /* SearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWorker.swift; sourceTree = "<group>"; };
 		199B94662429526C00438061 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				199B947424296A9300438061 /* UIViewController + Storyboard.swift */,
 				194B11772436869C00F3AAE1 /* CMTime + extension.swift */,
+				1990A1162438CB97002BC013 /* nib.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1990A1172438CB97002BC013 /* nib.swift in Sources */,
 				196961632423FC69003997EF /* SearchMusicViewController.swift in Sources */,
 				199B947524296A9300438061 /* UIViewController + Storyboard.swift in Sources */,
 				196961512423B833003997EF /* ViewController.swift in Sources */,
