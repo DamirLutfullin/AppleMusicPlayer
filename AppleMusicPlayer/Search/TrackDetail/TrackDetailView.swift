@@ -20,6 +20,8 @@ class TrackDetailView: UIView {
     
     //MARK: IBOutlets
     // mini player
+    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet var progress: UIProgressView!
     @IBOutlet var miniPlayerStackView: UIStackView!
     @IBOutlet var miniPlayerImageView: UIImageView!
     @IBOutlet var miniPlayerTrackName: UILabel!
@@ -111,6 +113,8 @@ class TrackDetailView: UIView {
     
     // MARK: Set outlets
     func set(viewModel: SearchViewModel.Cell) {
+        progressView.setProgress(0, animated: true)
+        progress.setProgress(0, animated: true)
         trackTitleLabel.text = viewModel.trackName
         miniPlayerTrackName.text = viewModel.trackName
         authorLabel.text = viewModel.artistName
@@ -255,6 +259,8 @@ class TrackDetailView: UIView {
         let durationSeconds = CMTimeGetSeconds(player.currentItem?.duration ?? player.currentTime())
         let value = currentTimeSeconds / durationSeconds
         self.currentTimeSlider.value = Float(value)
+        self.progress.progress = Float(value)
+        self.progressView.progress = Float(value)
     }
     
     

@@ -134,19 +134,21 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eU1-X9-80q">
-                    <rect key="frame" x="0.0" y="44" width="414" height="64"/>
+                    <rect key="frame" x="0.0" y="43.999999999999993" width="414" height="67.333333333333314"/>
                     <subviews>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="blu-cg-rjh">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="2.666666666666667"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </progressView>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="w0M-JL-gRH">
+                            <rect key="frame" x="0.0" y="1.6666666666666643" width="414" height="2.666666666666667"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </progressView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BPV-s8-EFF">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                            <rect key="frame" x="0.0" y="3.3333333333333357" width="414" height="64"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVA-4i-Dob">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="T1N-vK-chn"/>
-                                        <constraint firstAttribute="height" constant="1" id="Zop-Tl-Ic1"/>
-                                    </constraints>
-                                </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="w6k-1K-fWG">
                                     <rect key="frame" x="12" y="0.0" width="390" height="64"/>
                                     <subviews>
@@ -157,13 +159,13 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="252-wn-kwF">
-                                            <rect key="frame" x="66" y="22" width="180" height="20.333333333333329"/>
+                                            <rect key="frame" x="66" y="21.999999999999993" width="180" height="20.333333333333336"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="x7n-yA-xhm">
-                                            <rect key="frame" x="258" y="18" width="132" height="28"/>
+                                            <rect key="frame" x="258" y="17.999999999999993" width="132" height="28"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Jt-5f-isb">
                                                     <rect key="frame" x="0.0" y="0.0" width="46" height="28"/>
@@ -201,16 +203,13 @@
                                     </subviews>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" red="0.56470588239999997" green="0.56862745100000001" blue="0.58823529409999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.82107609510000001" green="0.81850689649999997" blue="0.8407728672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="w6k-1K-fWG" firstAttribute="leading" secondItem="BPV-s8-EFF" secondAttribute="leading" constant="12" id="4OG-Gc-uKh"/>
                                 <constraint firstAttribute="bottom" secondItem="w6k-1K-fWG" secondAttribute="bottom" id="ATa-Ai-k29"/>
                                 <constraint firstAttribute="trailing" secondItem="w6k-1K-fWG" secondAttribute="trailing" constant="12" id="Y3u-Am-7OP"/>
                                 <constraint firstItem="w6k-1K-fWG" firstAttribute="top" secondItem="BPV-s8-EFF" secondAttribute="top" id="clt-pW-y5D"/>
-                                <constraint firstItem="jVA-4i-Dob" firstAttribute="leading" secondItem="BPV-s8-EFF" secondAttribute="leading" id="guM-NA-WR0"/>
                                 <constraint firstAttribute="height" constant="64" id="lJW-NU-Gw1"/>
-                                <constraint firstAttribute="trailing" secondItem="jVA-4i-Dob" secondAttribute="trailing" id="mcW-tR-RL8"/>
-                                <constraint firstItem="jVA-4i-Dob" firstAttribute="top" secondItem="BPV-s8-EFF" secondAttribute="top" id="zqX-np-FcU"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -238,6 +237,8 @@
                 <outlet property="miniPlayerStackView" destination="eU1-X9-80q" id="Gsk-8x-YEI"/>
                 <outlet property="miniPlayerTrackName" destination="252-wn-kwF" id="HRC-TU-N7o"/>
                 <outlet property="playPuseButton" destination="WxL-no-SIe" id="uFm-w2-DAO"/>
+                <outlet property="progress" destination="w0M-JL-gRH" id="fig-De-358"/>
+                <outlet property="progressView" destination="blu-cg-rjh" id="taN-qq-eaJ"/>
                 <outlet property="trackImageView" destination="d9F-2K-Sig" id="wEd-9d-gix"/>
                 <outlet property="trackTitleLabel" destination="ZJv-eC-hIc" id="qHq-nd-iBV"/>
                 <outlet property="volumeSlider" destination="JZH-yO-JJO" id="idM-2O-6xf"/>
