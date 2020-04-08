@@ -39,6 +39,8 @@ class TrackDetailView: UIView {
     
     
     // MARK: Property
+    var mini: Bool = false
+    
     let player: AVPlayer = {
         let player = AVPlayer()
         player.automaticallyWaitsToMinimizeStalling = false
@@ -136,6 +138,7 @@ class TrackDetailView: UIView {
     private func setupGesture() {
         miniPlayerStackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapToOpen)))
         miniPlayerStackView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGesture)))
+        self.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(panGesture)))
     }
     
     @objc private func tapToOpen() {
@@ -144,8 +147,6 @@ class TrackDetailView: UIView {
     
     @objc private func panGesture(gesture: UIPanGestureRecognizer) {
         switch  gesture.state {
-        case .began:
-            print("began")
         case .changed:
             panCnanged(gesture: gesture)
         case .ended:
@@ -159,9 +160,16 @@ class TrackDetailView: UIView {
         let translation = gesture.translation(in: superview)
         self.transform = CGAffineTransform(translationX: 0, y: translation.y)
         
-        let newAlpha = translation.y / (self.frame.height / 1.5)
-        self.miniPlayerStackView.alpha = 1 + newAlpha
-        self.bigPlayerStackView.alpha = -newAlpha
+        let newAlpha = (translation.y / (self.frame.height / 1.3)).magnitude
+        if mini {
+            self.miniPlayerStackView.alpha =  1 - newAlpha
+            self.bigPlayerStackView.alpha =  newAlpha
+            
+        } else {
+            self.miniPlayerStackView.alpha =  newAlpha
+             self.bigPlayerStackView.alpha =  1 - newAlpha
+        }
+        
     }
     
     private func panEnded(gesture: UIPanGestureRecognizer) {
@@ -175,28 +183,50 @@ class TrackDetailView: UIView {
                        options: .curveEaseOut,
                        animations: {
                         self.transform = .identity
-                        if translation.y < -200 || velocity.y > 500 {
+                        if translation.y.magnitude > 200 || velocity.y.magnitude > 500 {
+                            if self.mini {
                             self.tabBarDelegate?.maximaizeTrackDetailController(viewModel: nil)
+                            } else {
+                                self.tabBarDelegate?.minimizedTrackDetailController()
+                            }
                         } else {
-                            self.tabBarDelegate?.minimizedTrackDetailController()
+                            if !self.mini {
+                            self.tabBarDelegate?.maximaizeTrackDetailController(viewModel: nil)
+                            } else {
+                                self.tabBarDelegate?.minimizedTrackDetailController()
+                            }
                         }
         },
                        completion: nil)
     }
     
+    
+    
     //MARK: Animation
     private func increaseTrackImageView() {
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.trackImageView.transform = .identity
-            self.miniPlayerImageView.transform = .identity
-        }, completion: nil)
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {
+                        self.trackImageView.transform = .identity
+                        self.miniPlayerImageView.transform = .identity
+        },
+                       completion: nil)
     }
     
     private func reduseTrackImageView() {
-        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.trackImageView.transform = CGAffineTransform(scaleX: self.scale, y: self.scale)
-            self.miniPlayerImageView.transform = CGAffineTransform(scaleX: self.scale, y: self.scale)
-        }, completion: nil)
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       usingSpringWithDamping: 0.5,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseOut,
+                       animations: {
+                        self.trackImageView.transform = CGAffineTransform(scaleX: self.scale, y: self.scale)
+                        self.miniPlayerImageView.transform = CGAffineTransform(scaleX: self.scale, y: self.scale)
+        },
+                       completion: nil)
     }
     
     //MARK: Time setup

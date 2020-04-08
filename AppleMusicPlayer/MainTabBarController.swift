@@ -81,6 +81,7 @@ extension MainTabBarController : MainTabBarControllerDelegate {
         maximizedTopAchorConstraint.constant = 0
                bottomAncorConstraint.constant = 0
         maximizedTopAchorConstraint.isActive = true
+        trackDetailView.mini = false
        
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -108,6 +109,7 @@ extension MainTabBarController : MainTabBarControllerDelegate {
         maximizedTopAchorConstraint.isActive = false
         bottomAncorConstraint.constant = view.frame.height
         minimizedTopAnchorConstraint.isActive = true
+        trackDetailView.mini = true
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
