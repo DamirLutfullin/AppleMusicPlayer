@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1916BB0824249EE100C7A7B0 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1916BB0724249EE100C7A7B0 /* SearchResponse.swift */; };
+		19223066243E6AE000012C99 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19223065243E6AE000012C99 /* Library.swift */; };
 		1926082C24293E8700FC1531 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1926082B24293E8700FC1531 /* NetworkService.swift */; };
 		1937F3A4242D4EC800005570 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937F3A3242D4EC800005570 /* TrackDetailView.swift */; };
 		1937F3A6242D4EFA00005570 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1937F3A5242D4EFA00005570 /* TrackDetailView.xib */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		1916BB0724249EE100C7A7B0 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		19223065243E6AE000012C99 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		1926082B24293E8700FC1531 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1937F3A3242D4EC800005570 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		1937F3A5242D4EFA00005570 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				1969614C2423B833003997EF /* AppDelegate.swift */,
 				1969614E2423B833003997EF /* SceneDelegate.swift */,
 				199B9463242951FA00438061 /* Services */,
+				19223065243E6AE000012C99 /* Library.swift */,
 				196961602423CD20003997EF /* MainTabBarController.swift */,
 				199B94542429515200438061 /* Search */,
 				196961622423FC69003997EF /* SearchMusicViewController.swift */,
@@ -335,6 +338,7 @@
 				199B946E2429526C00438061 /* SearchModels.swift in Sources */,
 				1916BB0824249EE100C7A7B0 /* SearchResponse.swift in Sources */,
 				199B946B2429526C00438061 /* SearchPresenter.swift in Sources */,
+				19223066243E6AE000012C99 /* Library.swift in Sources */,
 				1937F3A4242D4EC800005570 /* TrackDetailView.swift in Sources */,
 				1926082C24293E8700FC1531 /* NetworkService.swift in Sources */,
 			);

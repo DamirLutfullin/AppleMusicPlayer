@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MainTabBarController: UITabBarController {
     
@@ -24,13 +25,17 @@ class MainTabBarController: UITabBarController {
         
         setupTrackDetailView()
         searchVC.tabBarDelegate = self
+        
+        let library = Library()
+        let hostVC = UIHostingController(rootView: library)
+        hostVC.tabBarItem.image = #imageLiteral(resourceName: "library")
+        hostVC.tabBarItem.title = "Library"
+        
         tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3764705882, alpha: 1)
-
         
         viewControllers = [
-            createViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "search"), title: "Search"),
-            createViewController(rootViewController: ViewController(), image:
-                #imageLiteral(resourceName: "library"), title: "Library")
+            hostVC,
+            createViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "search"), title: "Search")
         ]
     }
     

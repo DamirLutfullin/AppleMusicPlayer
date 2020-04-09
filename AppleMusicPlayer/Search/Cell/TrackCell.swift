@@ -44,6 +44,9 @@ class TrackCell: UITableViewCell {
         guard let url = URL(string: viewModel.iconUrlString ?? "") else { return }
         trackIcon.sd_setImage(with: url, completed: nil)
     }
+    
+    @IBAction func saveTrack(_ sender: UIButton) {
+    }
 }
 
 
