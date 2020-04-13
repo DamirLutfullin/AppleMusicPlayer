@@ -53,9 +53,16 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
         
         searchController.obscuresBackgroundDuringPresentation = false
         setupSearchBar()
-        
         setupTableView()
-
+        searchBar(searchController.searchBar, textDidChange: "billie")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let keyWindow = UIApplication.shared.windows.first(where: {$0.isKeyWindow})?.rootViewController as? MainTabBarController
+        keyWindow?.trackDetailView.delegateForTrackMoving = self
+        
     }
     
     //MARK: display data

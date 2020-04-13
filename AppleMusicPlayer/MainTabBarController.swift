@@ -26,7 +26,9 @@ class MainTabBarController: UITabBarController {
         setupTrackDetailView()
         searchVC.tabBarDelegate = self
         
-        let library = Library()
+        var library = Library()
+        library.tabBarDelegate = self
+    
         let hostVC = UIHostingController(rootView: library)
         hostVC.tabBarItem.image = #imageLiteral(resourceName: "library")
         hostVC.tabBarItem.title = "Library"
@@ -34,8 +36,8 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3764705882, alpha: 1)
         
         viewControllers = [
-            hostVC,
-            createViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "search"), title: "Search")
+            createViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "search"), title: "Search"),
+            hostVC
         ]
     }
     

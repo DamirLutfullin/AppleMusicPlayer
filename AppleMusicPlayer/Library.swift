@@ -7,15 +7,24 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct Library: View {
+    
+    @State var tracks = TraksStore.tracksForList
+    @State private var showingAlert = false
+    @State private var cell: SearchViewModel.Cell!
+    
+    var tabBarDelegate: MainTabBarControllerDelegate!
+    
     var body: some View {
         NavigationView {
             VStack {
                 GeometryReader { geometry  in
                     HStack (spacing: 20){
                         Button(action: {
-                            print("1")
+                            self.cell = self.tracks.first
+                            self.tabBarDelegate.maximaizeTrackDetailController(viewModel: self.cell)
                         }, label: {
                             Image(systemName: "play.fill")
                                 .frame(width: geometry.size.width/2 - 10, height: 50)
@@ -24,7 +33,7 @@ struct Library: View {
                                 .cornerRadius(10) }
                         )
                         Button(action: {
-                            print("2")
+                            self.tracks = TraksStore.tracksForList
                         }, label: {
                             Image(systemName: "arrow.2.circlepath")
                                 .frame(width: geometry.size.width/2 - 10, height: 50)
@@ -34,24 +43,63 @@ struct Library: View {
                         )
                     }
                 }.padding().frame(height: 50)
+                
                 Divider().padding(.leading).padding(.trailing)
+                
                 List {
-                    LibraryCell()
+                    ForEach(tracks, id: \.self) { track in
+                        LibraryCell(cell: track)
+                            .gesture(LongPressGesture()
+                                .onEnded { _ in
+                                    self.cell = track
+                                    self.showingAlert = true
+                                }
+                                .simultaneously(with: TapGesture()
+                                    .onEnded { _ in
+                                       let keyWindow = UIApplication.shared.windows.first(where: {$0.isKeyWindow})?.rootViewController as? MainTabBarController
+                                        keyWindow?.trackDetailView.delegateForTrackMoving = self
+                                        
+                                        self.cell = track
+                                        self.tabBarDelegate.maximaizeTrackDetailController(viewModel: track)
+                                    }))
+                    }.onDelete(perform: delete(offSet:))
                 }
-            }
-            .navigationBarTitle("Library", displayMode: .large)
+                
+            }.actionSheet(isPresented: $showingAlert, content: {
+                ActionSheet(
+                    title: Text("are you should u want to delete whis track"),
+                    buttons: [
+                        .cancel(),
+                        .destructive(Text("Delete"), action: { self.delete(track: self.cell)})
+                    ]
+                )
+            })
+                .navigationBarTitle("Library", displayMode: .large)
         }
+    }
+    
+    func delete(offSet: IndexSet) {
+        tracks.remove(atOffsets: offSet)
+        TraksStore.tracksForList.remove(atOffsets: offSet)
+    }
+    
+    func delete(track: SearchViewModel.Cell) {
+        guard let index = tracks.firstIndex(of: track) else { return }
+        tracks.remove(at: index)
+        TraksStore.tracksForList.remove(at: index)
     }
 }
 
 struct LibraryCell: View {
+    var cell: SearchViewModel.Cell
     var body: some View {
         HStack {
-            Image.init(uiImage: #imageLiteral(resourceName: "Image"))
+            URLImage(URL(string: cell.iconUrlString ?? "")!)
                 .frame(width: 60, height: 60)
-            VStack{
-                Text("halo")
-                Text("halo").foregroundColor(Color.init(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)))
+                .cornerRadius(2)
+            VStack(alignment: .leading) {
+                Text(cell.trackName)
+                Text(cell.artistName).foregroundColor(Color.init(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)))
             }
         }
     }
@@ -60,5 +108,32 @@ struct LibraryCell: View {
 struct Library_Previews: PreviewProvider {
     static var previews: some View {
         Library()
+    }
+}
+
+extension Library:  TrackMovingDelegate {
+    
+    func moveToPreviosTrack() -> SearchViewModel.Cell? {
+        guard let index = tracks.firstIndex(of: cell) else { return nil }
+        let nextTrack: SearchViewModel.Cell
+        if index - 1 == 0 {
+            nextTrack = tracks.last!
+        } else {
+            nextTrack = tracks[index-1]
+        }
+        self.cell = nextTrack
+        return cell
+    }
+    
+    func moveToNextTrack() -> SearchViewModel.Cell? {
+        guard let index = tracks.firstIndex(of: cell) else { return nil }
+        let nextTrack: SearchViewModel.Cell
+        if index + 1 == tracks.count {
+            nextTrack = tracks[0]
+        } else {
+            nextTrack = tracks[index+1]
+        }
+        self.cell = nextTrack
+        return cell
     }
 }

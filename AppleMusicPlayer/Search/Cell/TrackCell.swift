@@ -24,9 +24,12 @@ class TrackCell: UITableViewCell {
     @IBOutlet var trackNameLabel: UILabel!
     @IBOutlet var collectionNameLabel: UILabel!
     @IBOutlet var artisrNameLabel: UILabel!
+    @IBOutlet var addButton: UIButton!
+    
     
     static let reuseId = "trackCell"
-    
+    let defaults = UserDefaults.standard
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -36,7 +39,20 @@ class TrackCell: UITableViewCell {
         trackIcon.image = nil
     }
     
-    func set(viewModel: TrackCellViewModel) {
+    var cell: SearchViewModel.Cell?
+    
+    func set(viewModel: SearchViewModel.Cell) {
+        cell = viewModel
+        
+        let hasFavorite = TraksStore.tracksForList.first(where: {
+            $0.trackName == self.cell?.trackName &&
+                $0.collectionName == self.cell?.collectionName
+        }) != nil
+        if hasFavorite {
+            addButton.isEnabled = false
+        } else {
+            addButton.isEnabled = true
+        }
         trackNameLabel.text = viewModel.trackName
         collectionNameLabel.text = viewModel.collectionName
         artisrNameLabel.text = viewModel.artistName
@@ -46,7 +62,19 @@ class TrackCell: UITableViewCell {
     }
     
     @IBAction func saveTrack(_ sender: UIButton) {
+        addButton.isEnabled = false
+        guard let cell = cell else { return }
+        TraksStore.tracksForList.append(cell)
+//        if let saveData = try? NSKeyedArchiver.archivedData(withRootObject: TraksStore.tracksForList, requiringSecureCoding: false) {
+//            print("успешно!")
+//            defaults.set(saveData, forKey: "traks")
+//        }
+        for tracks in TraksStore.tracksForList {
+            print(tracks.trackName)
+        }
     }
+    
 }
+
 
 

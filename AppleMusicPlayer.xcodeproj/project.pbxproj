@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,8 @@
 		194A52F5242BDC4D009E8A0D /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194A52F4242BDC4D009E8A0D /* FooterView.swift */; };
 		194B11782436869C00F3AAE1 /* CMTime + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194B11772436869C00F3AAE1 /* CMTime + extension.swift */; };
 		19550742242A8CAF007B787A /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19550741242A8CAF007B787A /* TrackCell.swift */; };
+		1955F96324448BC700913BEC /* TraksStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1955F96224448BC700913BEC /* TraksStore.swift */; };
+		1955F9662444A34B00913BEC /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1955F9652444A34B00913BEC /* URLImage */; };
 		1969614D2423B833003997EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969614C2423B833003997EF /* AppDelegate.swift */; };
 		1969614F2423B833003997EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1969614E2423B833003997EF /* SceneDelegate.swift */; };
 		196961512423B833003997EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196961502423B833003997EF /* ViewController.swift */; };
@@ -46,6 +48,7 @@
 		194A52F4242BDC4D009E8A0D /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		194B11772436869C00F3AAE1 /* CMTime + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + extension.swift"; sourceTree = "<group>"; };
 		19550741242A8CAF007B787A /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		1955F96224448BC700913BEC /* TraksStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraksStore.swift; sourceTree = "<group>"; };
 		196961492423B833003997EF /* AppleMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1969614C2423B833003997EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1969614E2423B833003997EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1955F9662444A34B00913BEC /* URLImage in Frameworks */,
 				597878003EF3AF7C2A79450C /* Pods_AppleMusicPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -94,6 +98,7 @@
 			children = (
 				1945721B2429D6510061BFF3 /* TrackCell.xib */,
 				19550741242A8CAF007B787A /* TrackCell.swift */,
+				1955F96224448BC700913BEC /* TraksStore.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -222,6 +227,9 @@
 			dependencies = (
 			);
 			name = AppleMusicPlayer;
+			packageProductDependencies = (
+				1955F9652444A34B00913BEC /* URLImage */,
+			);
 			productName = AppleMusicPlayer;
 			productReference = 196961492423B833003997EF /* AppleMusicPlayer.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +258,9 @@
 				Base,
 			);
 			mainGroup = 196961402423B833003997EF;
+			packageReferences = (
+				1955F9642444A34B00913BEC /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 1969614A2423B833003997EF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -338,6 +349,7 @@
 				199B946E2429526C00438061 /* SearchModels.swift in Sources */,
 				1916BB0824249EE100C7A7B0 /* SearchResponse.swift in Sources */,
 				199B946B2429526C00438061 /* SearchPresenter.swift in Sources */,
+				1955F96324448BC700913BEC /* TraksStore.swift in Sources */,
 				19223066243E6AE000012C99 /* Library.swift in Sources */,
 				1937F3A4242D4EC800005570 /* TrackDetailView.swift in Sources */,
 				1926082C24293E8700FC1531 /* NetworkService.swift in Sources */,
@@ -532,6 +544,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1955F9642444A34B00913BEC /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.13;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1955F9652444A34B00913BEC /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1955F9642444A34B00913BEC /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 196961412423B833003997EF /* Project object */;
 }

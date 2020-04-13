@@ -10,7 +10,7 @@ import UIKit
 import SDWebImage
 import AVKit
 
-protocol TrackMovingDelegate: class {
+protocol TrackMovingDelegate {
     func moveToPreviosTrack() -> SearchViewModel.Cell?
     func moveToNextTrack() -> SearchViewModel.Cell?
 }
@@ -51,7 +51,7 @@ class TrackDetailView: UIView {
     
     let scale: CGFloat = 0.8
     
-    weak var delegateForTrackMoving: TrackMovingDelegate?
+    var delegateForTrackMoving: TrackMovingDelegate?
     weak var tabBarDelegate : MainTabBarControllerDelegate?
     
     // MARK: Life cicle
