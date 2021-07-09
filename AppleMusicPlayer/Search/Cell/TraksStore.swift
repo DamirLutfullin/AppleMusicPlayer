@@ -23,7 +23,7 @@ class TraksStore {
         set {
             let defaults = UserDefaults.standard
             if let saveData = try? NSKeyedArchiver.archivedData(withRootObject: newValue, requiringSecureCoding: false) {
-                print("трек \(newValue.last?.trackName) добавлен")
+                print("трек \(String(describing: newValue.last?.trackName)) добавлен")
                 defaults.set(saveData, forKey: "tracks")
             }
         }

@@ -12,7 +12,6 @@
 		1926082C24293E8700FC1531 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1926082B24293E8700FC1531 /* NetworkService.swift */; };
 		1937F3A4242D4EC800005570 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1937F3A3242D4EC800005570 /* TrackDetailView.swift */; };
 		1937F3A6242D4EFA00005570 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1937F3A5242D4EFA00005570 /* TrackDetailView.xib */; };
-		1937F3A8242D531500005570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1937F3A7242D531400005570 /* Assets.xcassets */; };
 		1945721D2429D6510061BFF3 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1945721B2429D6510061BFF3 /* TrackCell.xib */; };
 		194A52F5242BDC4D009E8A0D /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194A52F4242BDC4D009E8A0D /* FooterView.swift */; };
 		194B11782436869C00F3AAE1 /* CMTime + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194B11772436869C00F3AAE1 /* CMTime + extension.swift */; };
@@ -43,7 +42,6 @@
 		1926082B24293E8700FC1531 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1937F3A3242D4EC800005570 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		1937F3A5242D4EFA00005570 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
-		1937F3A7242D531400005570 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../Downloads/14 урок/IMusic/Assets.xcassets"; sourceTree = "<group>"; };
 		1945721B2429D6510061BFF3 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		194A52F4242BDC4D009E8A0D /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		194B11772436869C00F3AAE1 /* CMTime + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMTime + extension.swift"; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				199B94542429515200438061 /* Search */,
 				196961622423FC69003997EF /* SearchMusicViewController.swift */,
 				196961502423B833003997EF /* ViewController.swift */,
-				1937F3A7242D531400005570 /* Assets.xcassets */,
 				196961572423B836003997EF /* LaunchScreen.storyboard */,
 				1969615A2423B836003997EF /* Info.plist */,
 				199B947624296AA100438061 /* Helpers */,
@@ -241,7 +238,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = DamirLutfullin;
 				TargetAttributes = {
 					196961482423B833003997EF = {
@@ -278,7 +275,6 @@
 				196961592423B836003997EF /* LaunchScreen.storyboard in Resources */,
 				199B94732429657A00438061 /* SearchViewController.storyboard in Resources */,
 				1945721D2429D6510061BFF3 /* TrackCell.xib in Resources */,
-				1937F3A8242D531500005570 /* Assets.xcassets in Resources */,
 				1937F3A6242D4EFA00005570 /* TrackDetailView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +392,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -456,6 +453,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

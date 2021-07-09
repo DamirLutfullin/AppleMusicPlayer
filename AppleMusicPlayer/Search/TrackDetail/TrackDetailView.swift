@@ -124,8 +124,8 @@ class TrackDetailView: UIView {
         trackImageView.sd_setImage(with: URL(string: string600), completed: nil)
         miniPlayerImageView.sd_setImage(with: URL(string: string600), completed: nil)
         playTrack(previewUrl: viewModel.previewUrl)
-        playPuseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
-        miniPlayerPlayPauseButton.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        playPuseButton.setImage(UIImage.init(systemName: "play.fill"), for: .normal)
+        miniPlayerPlayPauseButton.setImage(UIImage.init(systemName: "play.fill"), for: .normal)
     }
     
     //MARK: music player

@@ -30,13 +30,13 @@ class MainTabBarController: UITabBarController {
         library.tabBarDelegate = self
     
         let hostVC = UIHostingController(rootView: library)
-        hostVC.tabBarItem.image = #imageLiteral(resourceName: "library")
+        hostVC.tabBarItem.image = UIImage.init(systemName: "building.columns.fill")
         hostVC.tabBarItem.title = "Library"
         
         tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3764705882, alpha: 1)
         
         viewControllers = [
-            createViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "search"), title: "Search"),
+            createViewController(rootViewController: searchVC, image: UIImage.init(systemName: "magnifyingglass")!, title: "Search"),
             hostVC
         ]
     }
@@ -74,8 +74,7 @@ class MainTabBarController: UITabBarController {
 }
 
 //MARK: MainTabBarControllerDelegate
-
-protocol MainTabBarControllerDelegate: class {
+protocol MainTabBarControllerDelegate: AnyObject {
     func minimizedTrackDetailController()
     func maximaizeTrackDetailController(viewModel: SearchViewModel.Cell?)
 }

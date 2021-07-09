@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: scene)
-        window?.makeKeyAndVisible() // показывает окно и располагает его над всеми
+        window?.makeKeyAndVisible()
         window?.rootViewController = MainTabBarController()
     }
 
